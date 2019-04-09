@@ -21,15 +21,20 @@ var eveningHour = parseInt(evening1.innerHTML);
 var eveningMinutes = parseInt(evening2.innerHTML); 
 
 var message = document.getElementById("timeDiv");
+var closeButton = document.getElementsByClassName("btn")[0]; 
+
+closeButton.addEventListener("click", closeEarly);
+
+function closeEarly() {
+  evening1.innerHTML = currentHour;
+  evening2.innerHTML = currentMinute;
+}
 
 if (currentDay != "Sunday") {
   if (morningHour <= currentHour < eveningHour) {
-    console.log("We're open");
     message.innerHTML = "We're open!";
   }
 } else {
-  console.log("We're closed");
   message.innerHTML = "We're open!";
-
 }
 
