@@ -20,11 +20,16 @@ var morningMinutes = parseInt(morning2.innerHTML);
 var eveningHour = parseInt(evening1.innerHTML);
 var eveningMinutes = parseInt(evening2.innerHTML); 
 
+var message = document.getElementById("timeDiv");
+
 if (currentDay != "Sunday") {
   if (morningHour <= currentHour < eveningHour) {
     console.log("We're open");
+    message.innerHTML = "We're open!";
   }
 } else {
   console.log("We're closed");
+  message.innerHTML = "We're open!";
+
 }
 
