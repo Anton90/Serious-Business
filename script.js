@@ -13,22 +13,26 @@ var currentHour = today.getHours();
 var currentMinute = today.getMinutes();
 var currentSecond = today.getSeconds();
 
-if (currentHour < 10) {
-  currentHour = "0" + currentHour;
+var clock = document.getElementById("clock");
+
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  } 
+  return i;
 }
 
-if (currentMinute < 10) {
-  currentMinute = "0" + currentMinute;
+function digitalClock() {
+  today = new Date();
+
+  currentHour = today.getHours();
+  currentMinute = today.getMinutes();
+  currentSecond = today.getSeconds();
+  clock.innerHTML = currentHour + ":" + addZero(currentMinute) + ":" + addZero(currentSecond);
 }
 
-if (currentSecond < 10) {
-  currentSecond = "0" + currentSecond;
-}
+setInterval(digitalClock,1000);
 
-// var clock = document.getElementById("timeDiv")
-// setInterval( 
-//   (clock.innerHTML = currentHour + ":" + currentMinute + ":" + currentSecond)
-//   ,1000);
 
 var morning1 = document.getElementsByClassName("hoursMorning")[today.getDay() - 1];
 var morning2 = document.getElementsByClassName("minutesMorning")[today.getDay() - 1];
@@ -45,8 +49,8 @@ var closeButton = document.getElementsByClassName("btn")[0];
 closeButton.addEventListener("click", closeEarly);
 
 function closeEarly() {
-  evening1.innerHTML = currentHour;
-  evening2.innerHTML = currentMinute;
+  evening1.innerHTML = addZero(currentHour);
+  evening2.innerHTML = addZero(currentMinute);
 }
 
 if (currentDay != "Sunday") {
