@@ -1,5 +1,5 @@
-var today = new Date();
-var weekday = new Array(7);
+const today = new Date();
+const weekday = new Array(7);
   weekday[0] = "Sunday";
   weekday[1] = "Monday";
   weekday[2] = "Tuesday";
@@ -8,7 +8,8 @@ var weekday = new Array(7);
   weekday[5] = "Friday";
   weekday[6] = "Saturday";
 
-var currentDay = weekday[today.getDay()];
-var time = today.getHours() + ":" + today.getMinutes();
-console.log(time);
-console.log(currentDay);
+const currentDay = weekday[today.getDay()];
+const time = today.getHours() + ":" + today.getMinutes();
+
+if ()
+
